@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Event from  "./components/Event";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Event />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );
