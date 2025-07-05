@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/app/app.csproj": {}
+    "/Users/yuma/Desktop/TODO/backend/app.csproj": {}
   },
   "projects": {
-    "/app/app.csproj": {
+    "/Users/yuma/Desktop/TODO/backend/app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/app.csproj",
+        "projectUniqueName": "/Users/yuma/Desktop/TODO/backend/app.csproj",
         "projectName": "app",
-        "projectPath": "/app/app.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/obj/",
+        "projectPath": "/Users/yuma/Desktop/TODO/backend/app.csproj",
+        "packagesPath": "/Users/yuma/.nuget/packages/",
+        "outputPath": "/Users/yuma/Desktop/TODO/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/Users/yuma/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -55,7 +55,7 @@
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[9.0.0-preview.3, )"
+              "version": "[9.0.0-preview.3.efcore.9.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
