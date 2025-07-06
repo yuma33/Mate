@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Plus, Calendar, FileText } from 'lucide-react';
 
-const Event = () => {
+//省略記法
+const Event = ({ onTodoAdd }) => {
   const [content, setContent] = useState('');
   const [scheduledDate, setScheduledDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (content.trim() && scheduledDate) {
-      console.log('新しいTODO:', { content: content.trim(), scheduledDate });
-
-      // フォームをクリア
+      onTodoAdd({ content: content.trim(), scheduledDate });
       setContent('');
       setScheduledDate('');
     }
@@ -19,7 +18,7 @@ const Event = () => {
   const remainingChars = 100 - content.length;
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
       <div className="px-6 py-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
         <div className="flex items-center gap-3">
           <Plus className="w-6 h-6" />
@@ -55,7 +54,6 @@ const Event = () => {
             </div>
           </div>
 
-          {/* 予定日入力 */}
           <div>
             <label htmlFor="scheduledDate" className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-3">
               <Calendar className="w-4 h-4" />
@@ -72,7 +70,6 @@ const Event = () => {
             />
           </div>
 
-          {/* 送信ボタン */}
           <button
             type="submit"
             disabled={!content.trim() || !scheduledDate}
