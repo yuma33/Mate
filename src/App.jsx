@@ -21,10 +21,18 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   const TodoPage = () => (
     <main className="container mx-auto p-4 md:p-8">
       <Event onTodoAdd={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onToggle={toggleTodo} />
     </main>
   );
 
