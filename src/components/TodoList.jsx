@@ -5,7 +5,7 @@ const TodoList = ({ todos, onToggle, onDelete, onEdit }) => {
     return (
       <div className="bg-white rounded-lg shadow p-8 text-center text-gray-500">
         <p>TODOはまだありません。</p>
-        <p>上のフォームから最初のTODOを追加してみましょう！</p>
+        <p>上のフォームからTODOを追加してみましょう！</p>
       </div>
     );
   }
