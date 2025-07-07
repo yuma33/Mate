@@ -1,31 +1,61 @@
-import React, { useState } from 'react';
-import { Plus, Calendar, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Plus, Edit, X, Calendar, FileText } from 'lucide-react';
 
-//省略記法
-const Event = ({ onTodoAdd }) => {
+const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
   const [content, setContent] = useState('');
   const [scheduledDate, setScheduledDate] = useState('');
+
+  useEffect(() => {
+    if (editingTodo) {
+      setContent(editingTodo.content);
+      setScheduledDate(editingTodo.scheduledDate);
+    } else {
+      setContent('');
+      setScheduledDate('');
+    }
+  }, [editingTodo]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (content.trim() && scheduledDate) {
-      onTodoAdd({ content: content.trim(), scheduledDate });
-      setContent('');
-      setScheduledDate('');
+      onTodoAdd({
+        id: editingTodo ? editingTodo.id : Date.now(),
+        content: content.trim(),
+        scheduledDate,
+      });
+      if (!editingTodo) {
+        setContent('');
+        setScheduledDate('');
+      }
     }
   };
 
+  const isEditing = !!editingTodo;
   const remainingChars = 100 - content.length;
 
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
-      <div className="px-6 py-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+      <div className={`px-6 py-4 ${isEditing ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-500 to-indigo-500'} text-white flex justify-between items-center`}>
         <div className="flex items-center gap-3">
-          <Plus className="w-6 h-6" />
+          {isEditing ? (
+            <Edit className="w-6 h-6" />
+          ) : (
+            <Plus className="w-6 h-6" />
+          )}
           <h2 className="text-xl font-bold">
-            新しいTODOを追加
+            {isEditing ? 'TODOを編集' : '新しいTODOを追加'}
           </h2>
         </div>
+        {isEditing && onCancel && (
+          <button
+            type="button"
+            onClick={onCancel}
+            className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+            title="編集をキャンセル"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
       </div>
 
       <form onSubmit={handleSubmit} className="p-6">
@@ -73,9 +103,12 @@ const Event = ({ onTodoAdd }) => {
           <button
             type="submit"
             disabled={!content.trim() || !scheduledDate}
-            className="w-full font-bold py-4 px-6 rounded-xl text-white transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:ring-blue-500"
+            className={`w-full font-bold py-4 px-6 rounded-xl text-white transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${isEditing
+                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700'
+                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700'
+            }`}
           >
-            TODOを追加する
+            {isEditing ? 'TODOを更新する' : 'TODOを追加する'}
           </button>
         </div>
       </form>
