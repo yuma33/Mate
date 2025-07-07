@@ -37,7 +37,6 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
           <p className="text-sm text-gray-500 mt-2">
             予定日: {todo.scheduledDate}
           </p>
-          {/* 作成日時と更新日時を表示 - formatDateTimeを適用 */}
           <div className="mt-4 text-xs text-gray-500 space-y-1">
             <div>作成日時: {formatDateTime(todo.createdAt)}</div>
             <div>更新日時: {formatDateTime(todo.updatedAt)}</div>
