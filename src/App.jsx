@@ -4,11 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Event from  "./components/Event";
 import TodoList from "./components/TodoList";
+import FilterButtons from "./components/FilterButtons";
 import Footer from "./components/Footer";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [editingTodo, setEditingTodo] = useState(null);
+  const [activeFilter, setActiveFilter] = useState('all');
 
   const addTodo = (newTodoData) => {
     const newTodo = {
@@ -34,17 +36,14 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
-  // 編集を開始する関数
   const startEditing = (todo) => {
     setEditingTodo(todo);
   };
 
-  // 編集をキャンセルする関数
   const cancelEditing = () => {
     setEditingTodo(null);
   };
 
-  // TODOを更新する関数
   const updateTodo = (updatedTodoData) => {
     setTodos(
       todos.map((todo) =>
@@ -52,13 +51,27 @@ function App() {
           ? {
               ...todo,
               ...updatedTodoData,
-              updatedAt: new Date().toISOString() // ISO形式に戻す
+              updatedAt: new Date().toISOString()
             }
           : todo
       )
     );
-    setEditingTodo(null); // 編集モードを終了
+    setEditingTodo(null);
   };
+
+  const handleFilterChange = (filterType) => {
+    setActiveFilter(filterType);
+  };
+
+  const filteredTodos = todos.filter(todo => {
+    if (activeFilter === 'incomplete') {
+      return !todo.completed;
+    }
+    if (activeFilter === 'complete') {
+      return todo.completed;
+    }
+    return true;
+  });
 
   const TodoPage = () => (
     <main className="container mx-auto p-4 md:p-8">
@@ -67,8 +80,12 @@ function App() {
         editingTodo={editingTodo}
         onCancel={cancelEditing}
       />
+      <FilterButtons
+        activeFilter={activeFilter}
+        onFilterChange={handleFilterChange}
+      />
       <TodoList
-        todos={todos}
+        todos={filteredTodos}
         onToggle={toggleTodo}
         onDelete={deleteTodo}
         onEdit={startEditing}
