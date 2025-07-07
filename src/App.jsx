@@ -29,10 +29,14 @@ function App() {
     );
   };
 
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
   const TodoPage = () => (
     <main className="container mx-auto p-4 md:p-8">
       <Event onTodoAdd={addTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} />
+      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </main>
   );
 
