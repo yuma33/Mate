@@ -1,7 +1,7 @@
 # Mate （フロントエンドのみ）
 
 # 🌏 サービスURL
-### <br>
+### https://nice-bush-00ac46c00.1.azurestaticapps.net/
 <br>
 
 # ■ サービス概要
@@ -34,8 +34,10 @@ TODOアプリは、日常の中で最も身近に使われるツールの一つ�
 | 項目           | 使用技術                         |
 |----------------|----------------------------------|
 | フレームワーク | React 19.1.0                    |
-| ルーティング   | React Router DOM 7.6.3                    |
+| ルーティング   | React Router DOM 6.22.3                    |
 | スタイリング   | Tailwind CSS  3                   |
+| ホスティング   | Azure Static Web Apps            |
+| CI/CD          | GitHub Actions                   |
 
 
 ---
