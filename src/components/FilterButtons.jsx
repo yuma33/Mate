@@ -42,7 +42,7 @@ const FilterButtons = ({ activeFilter, onFilterChange }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 mb-8">
+    <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-4 mb-8">
       <h3 className="text-sm font-semibold text-gray-600 mb-4 px-2">表示フィルター</h3>
       <div className="flex flex-wrap gap-3">
         {filters.map((filter) => {

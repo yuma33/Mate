@@ -45,14 +45,14 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit }) => {
         <div className="flex gap-2">
           <button
             onClick={() => onEdit(todo)}
-            className="p-2 text-blue-600 hover:bg-blue-50 rounded-full"
+            className="p-2 text-gray-600 hover:bg-gray-100 rounded-full"
             title="編集"
           >
             <Edit className="w-4 h-4" />
           </button>
           <button
             onClick={() => onDelete(todo.id)}
-            className="p-2 text-red-600 hover:bg-red-50 rounded-full"
+            className="p-2 text-gray-600 hover:bg-gray-100 rounded-full"
             title="削除"
           >
             <Trash2 className="w-4 h-4" />
