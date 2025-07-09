@@ -35,7 +35,7 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
 
   return (
     <div className="bg-white rounded-2xl shadow-md border border-gray-100 mb-8">
-      <div className={`px-6 py-4 ${isEditing ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-600 to-indigo-600'} text-white flex justify-between items-center`}>
+      <div className={`px-6 py-4 ${isEditing ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-600 to-blue-700'} text-white flex justify-between items-center`}>
         <div className="flex items-center gap-3">
           {isEditing ? (
             <Edit className="w-6 h-6" />

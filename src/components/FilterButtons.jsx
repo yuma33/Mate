@@ -23,7 +23,7 @@ const FilterButtons = ({ activeFilter, onFilterChange }) => {
   ];
 
   const getButtonStyles = (filter, isActive) => {
-    const baseStyles = "flex items-center gap-2 px-5 py-3 rounded-xl font-semibold transition-all transform hover:scale-105 focus:ring-4 focus:ring-offset-2";
+    const baseStyles = "flex items-center gap-2 px-5 py-3 rounded-xl font-semibold  ";
 
     if (isActive) {
       switch (filter.color) {
@@ -32,7 +32,7 @@ const FilterButtons = ({ activeFilter, onFilterChange }) => {
         case 'amber':
           return `${baseStyles} bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg focus:ring-amber-300`;
         case 'green':
-          return `${baseStyles} bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg focus:ring-green-300`;
+          return `${baseStyles} bg-gradient-to-r from-green-400 to-emerald-500 text-white shadow-lg focus:ring-green-300`;
         default:
           return `${baseStyles} bg-gray-600 text-white shadow-lg`;
       }
