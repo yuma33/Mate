@@ -34,8 +34,8 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
   const remainingChars = 100 - content.length;
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
-      <div className={`px-6 py-4 ${isEditing ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-500 to-indigo-500'} text-white flex justify-between items-center`}>
+    <div className="bg-white rounded-2xl shadow-md border border-gray-100 mb-8">
+      <div className={`px-6 py-4 ${isEditing ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-600 to-indigo-600'} text-white flex justify-between items-center`}>
         <div className="flex items-center gap-3">
           {isEditing ? (
             <Edit className="w-6 h-6" />
@@ -71,7 +71,7 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="やることを入力してください..."
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none transition-all text-gray-800 placeholder-gray-400"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl  focus:border-blue-500 resize-none  text-gray-800 placeholder-gray-400"
               rows={3}
               maxLength={100}
               required
@@ -95,7 +95,7 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
               id="scheduledDate"
               value={scheduledDate}
               onChange={(e) => setScheduledDate(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-gray-800"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl  focus:border-blue-500 text-gray-800"
               required
             />
           </div>
@@ -104,8 +104,8 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
             type="submit"
             disabled={!content.trim() || !scheduledDate}
             className={`w-full font-bold py-4 px-6 rounded-xl text-white transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${isEditing
-                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700'
-                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700'
+                ? 'bg-gray-400 hover:from-gray-700 hover:to-gray-900'
+                : 'bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-900'
             }`}
           >
             {isEditing ? 'TODOを更新する' : 'TODOを追加する'}

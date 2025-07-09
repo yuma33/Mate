@@ -95,7 +95,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-gray-50 min-h-screen flex flex-col">
+      <div className="bg-orange-100 min-h-screen flex flex-col">
         <Header />
         <div className="flex-grow">
           <Routes>
