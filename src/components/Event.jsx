@@ -104,8 +104,8 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
             type="submit"
             disabled={!content.trim() || !scheduledDate}
             className={`w-full font-bold py-4 px-6 rounded-xl text-white transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${isEditing
-                ? 'bg-gray-400 hover:from-gray-700 hover:to-gray-900'
-                : 'bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-700 hover:to-gray-900'
+                ? 'bg-gray-400 hover:bg-gray-700'
+                : 'bg-gradient-to-r from-gray-600 to-gray-800'
             }`}
           >
             {isEditing ? 'TODOを更新する' : 'TODOを追加する'}
