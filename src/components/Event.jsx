@@ -23,30 +23,27 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
         content: content.trim(),
         scheduledDate,
       });
-      if (!editingTodo) {
         setContent('');
         setScheduledDate('');
-      }
     }
   };
 
-  const isEditing = !!editingTodo;
   const remainingChars = 100 - content.length;
 
   return (
     <div className="bg-white rounded-2xl shadow-md border border-gray-100 mb-8">
-      <div className={`px-6 py-4 ${isEditing ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-600 to-blue-700'} text-white flex justify-between items-center`}>
+      <div className={`px-6 py-4 ${editingTodo ? 'bg-gradient-to-r from-purple-500 to-indigo-500' : 'bg-gradient-to-r from-blue-600 to-blue-700'} text-white flex justify-between items-center`}>
         <div className="flex items-center gap-3">
-          {isEditing ? (
+          {editingTodo ? (
             <Edit className="w-6 h-6" />
           ) : (
             <Plus className="w-6 h-6" />
           )}
           <h2 className="text-xl font-bold">
-            {isEditing ? 'TODOを編集' : '新しいTODOを追加'}
+            {editingTodo ? 'TODOを編集' : '新しいTODOを追加'}
           </h2>
         </div>
-        {isEditing && onCancel && (
+        {editingTodo && onCancel && (
           <button
             type="button"
             onClick={onCancel}
@@ -103,12 +100,12 @@ const Event = ({ onTodoAdd, editingTodo, onCancel }) => {
           <button
             type="submit"
             disabled={!content.trim() || !scheduledDate}
-            className={`w-full font-bold py-4 px-6 rounded-xl text-white transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${isEditing
+            className={`w-full font-bold py-4 px-6 rounded-xl text-white transition-all transform hover:scale-[1.02] focus:ring-4 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${editingTodo
                 ? 'bg-gray-400 hover:bg-gray-700'
                 : 'bg-gradient-to-r from-gray-600 to-gray-800'
             }`}
           >
-            {isEditing ? 'TODOを更新する' : 'TODOを追加する'}
+            {editingTodo ? 'TODOを更新する' : 'TODOを追加する'}
           </button>
         </div>
       </form>

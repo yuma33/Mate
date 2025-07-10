@@ -7,6 +7,7 @@ import TodoList from "./components/TodoList";
 import FilterButtons from "./components/FilterButtons";
 import Footer from "./components/Footer";
 
+//const Comp = () => { return JSX; }
 function App() {
   const [todos, setTodos] = useState([]);
   const [editingTodo, setEditingTodo] = useState(null);
@@ -14,7 +15,7 @@ function App() {
 
   const addTodo = (newTodoData) => {
     const newTodo = {
-      id: Date.now(),
+      id: newTodoData.id,
       content: newTodoData.content,
       scheduledDate: newTodoData.scheduledDate,
       completed: false,
@@ -72,7 +73,7 @@ function App() {
     }
     return true;
   });
-
+   //returnは省略 const Comp = () => (JSX);
   const TodoPage = () => (
     <main className="container mx-auto p-4 md:p-8">
       <Event
