@@ -9,7 +9,7 @@ const TodoList = ({ todos, onToggle, onDelete, onEdit }) => {
       </div>
     );
   }
-
+//{todo.id}がないとどれが元のデータか分からない、どれが変更されたのか特定できない、そもそも削除されたのか変更されたのかがわからなくなってしまう。
   return (
     <div className="space-y-4">
       {todos.map((todo) => (
